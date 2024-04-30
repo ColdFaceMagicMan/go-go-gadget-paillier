@@ -108,6 +108,7 @@ func (sk *PrivateKey) MarshalBinary() []byte {
 
 func (p *PrivateKey) UnmarshalBinary(data []byte) error {
 
-	p, _ = GetPrivateKeyFromHex(string(data))
+	newP, _ := GetPrivateKeyFromHex(string(data))
+	*p = *newP
 	return nil
 }
